@@ -1,0 +1,24 @@
+Un inodo es una estructura de control que contiene la información necesitada por el SO para gestionar un archivo determinado.
+
+Puede haber varios nombre de archivo asociados con un inodo pero solo UN inodo ACTIVO se asocia con exactamente UN archivo.
+Cada archivo es controlado por exactamente un inodo.
+
+Un directorio es simplemente un archivo que contiene una lista de nombres de archivo y los punteros a sus inodos asociados.
+-------------
+Parcial inodos
+
+1024 B / 4 B = 256 -> Hay 256 punteros por bloque
+
+a)Tamaño máx de un archivo = (2 + 256 + 256^3)*1KB = 16GB
+
+tamInodo = 480B + 4B*4 = 496B
+c) tTabla = tamInodo*1000 = 496 000 B (aprox 500kB)
+
+Registros de 2k -> 2 bloques por registro
+
+8000 bloques en total.
+2 son directos.+0 8000
+256 son indirectos.+1 (simple) 8001
+7742 son triples.+1(doble)+31(simple) 8033
+
+c) 8033

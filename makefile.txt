@@ -1,0 +1,23 @@
+CC = gcc
+prereqFS = fileSys.o consolaFS.o  montarFS.os sockets.o
+
+socklibr = sockets.h
+structFSlibr = estructurasFS.h
+consolaFSlibr = consolaFS.h
+montarFSlibr = montarFS.h
+comandoslibr = comandosFS.h
+configuracioneslibr = configuraciones.h
+protocololibr = protocolo.h
+
+fileSys : $(prereqFS)
+	  gcc -o fileSys $(prereqFS)
+
+montarFS.o: $(montarFSlibr) $(structFSlibr)
+
+comandosFS.o: $(comandoslibr) sockets.o $(structFSlibr)
+
+configuraciones.o: $(configuracioneslibr)
+
+consolaFS.o: $(consolaFSlibr) $(structFSlibr) comandosFS.o
+
+sockets.o: $(protocololibr)
